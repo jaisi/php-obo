@@ -2,20 +2,22 @@
 
 namespace datawriter;
 
+
 class DBDataWriter implements DataWriter
 {
       public function writeData($allTerms)
       {
           //create connection
           $config = parse_ini_file('./config.ini');
-          $db = new \mysqli('localhost', $config['username'],$config['password'],$config['dbname']);
+          $db = new \mysqli('127.0.0.1', $config['username'],$config['password'],$config['dbname']);
+	  echo(print_r($config,1));
 
           // Check connection
           if ($db->connect_error) {
               die("Connection failed: " . $db->connect_error);
           }
 
-
+$i = 0;
 
           foreach ($allTerms as $term)
           {
@@ -30,7 +32,74 @@ class DBDataWriter implements DataWriter
               $is_obsolete = $term['is_obsolete'];
               $created_by = $term['created_by'];
               $creation_date = $term['creation_date'];
-              
+              $i++;
+              if ($i <= 1000 ) {
+                //var_dump($term);
+
+                $props = $term['property_value'];
+
+                foreach ($props as $p) {
+                  $matches = [];
+                  $pname = [];
+                  $prop_name = '';
+                  $prop_val = '';
+
+                  //echo "<h1> Property  $p </h1>";
+                  // This is an http string property
+                  if (preg_match('/^(.*?)\s(.*?)\s?/', $p, $matches)) {
+                    $prop_name = $matches[1];
+                    $prop_value = $matches[2];
+                     echo "<h3> $p </h3> <h3> General Rule caught it Derived Name: $prop_name Value: $prop_value  </h3>";
+
+                  }
+
+                  if (preg_match('/^(http:.*?)\s(.*?)(xsd:string)?/', $p, $matches)) {
+                    //echo "<h3> Http Property Property Name Matches </h3>";
+                    $prop_name = $matches[1];
+                    $prop_value = $matches[2];
+                  //  echo "<h3> Derived Name: $prop_name Value: $prop_value  </h3>";
+
+                  }
+                  // Quoted Property Value format of property string ,  Property name is beginning of string to first ". Value is in ""
+                  else if (preg_match('/^(.*?)\s?"(.*?)" xsd:string/', $p, $matches)) {
+                   echo "<h3> Quoted Property Value Matches </h3>";
+                    $prop_name = $matches[1];
+                    $prop_value = $matches[2];
+
+                  /*  if (preg_match('/(".*?")/', $p, $matches)) {
+                      echo "<h3> Value Matches  </h3>";
+                      var_dump($matches);
+                    }
+                    */
+                  }
+                  else {
+                    echo "<h3 style='color:red;'> Property Not derived . Handle this property type </h3>";
+                    echo("<h3> Property Value $p </h3>");
+                  }
+
+                  //echo "<h3> Derived Name: $prop_name Value: $prop_value  </h3>";
+
+                  // Insert prop name and get id in database if it doesn't exist.
+                  //$prop_id = $this->findInsertProperty($prop_name);
+
+                }
+
+
+
+
+
+              }
+
+              else {
+                // Insert prop name and get id in database if it doesn't exist.
+                $prop_id = $this->findInsertProperty($prop_name);
+
+
+              }
+
+              continue;
+
+              /* End debugging */
               //prop_value
               if (is_array($term['property_value']))
               {
@@ -61,7 +130,10 @@ class DBDataWriter implements DataWriter
 
                 if (!empty($property_value))
                 {
+                  // Check for property in property taable and insert if we don't have it.
+                  $sql = "select property_id from efo_property where" ;
                   $property_value = preg_replace('/\[]|"|xsd:string|\\\n/', '', $property_value);
+
                   $property_value_cleaned = $property_value;
                   $property_value_cleaned = preg_replace('*ArrayExpress:label|EFO:URI|IAO:0000117|source:definition|organizational:class|definition:citation|bioportal:provenance|branch:class|IAO:0000412|http://www.ebi.ac.uk/efo/MSH_definition_citation MSH:|http://www.ebi.ac.uk/efo/NCI_Thesaurus_definition_citation NCIt:|http://www.ebi.ac.uk/efo/Patent_definition_citation|http://www.ebi.ac.uk/efo/SNOMEDCT_definition_citation SNOMEDCT:|http://www.ebi.ac.uk/efo/BFO_definition_citation BFO:|http://www.ebi.ac.uk/efo/obsoleted_in_version|http://www.ebi.ac.uk/efo/UBERON_definition_citation UBERON:|http://www.ebi.ac.uk/efo/reason_for_obsolescence|IAO:0000112*','', $property_value_cleaned);
 
