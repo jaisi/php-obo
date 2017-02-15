@@ -17,21 +17,112 @@ class DBDataWriter implements DataWriter
 
 
 
-          foreach ($allTerms as $term)
-          {
-              //echo "i am now here";
-              //echo $ont_id[1];
-          //  echo $term['id'] . ' ' . $term['name'] . ' ' . $term['def'][0]. ' ' . $term['property_value'][0]. PHP_EOL;
+      //    $i = 0;
+                    foreach ($allTerms as $term)
+                    {
+                        //echo "i am now here";
+                        //echo $ont_id[1];
+                    //  echo $term['id'] . ' ' . $term['name'] . ' ' . $term['def'][0]. ' ' . $term['property_value'][0]. PHP_EOL;
+                        $id = $term['id'];
+                        $name = $term['name'];
+                        $namespace = $term['namespace'];
+                        $equivalent_to = $term['equivalent_to'];
+                        $is_obsolete = $term['is_obsolete'];
+                        $created_by = $term['created_by'];
+                        $creation_date = $term['creation_date'];
+                    //    $i++;
+                      //  if ($i = 1000 ) {
+                          //var_dump($term);
+                          $props = $term['property_value'];
+                          foreach ($props as $p) {
+                            $matches = [];
+                            $pname = [];
+                            $prop_name = '';
+                            $prop_val = '';
+                          //  echo "<h1> Property  $p </h1>";
+                            // This is an http string property
+                            if (preg_match('/^(.*?)\s(.*?)\s?/', $p, $matches)) {
+                              $prop_name = $matches[1];
+                              $prop_value = $matches[2];
+                               echo "<h3> $p </h3> <h3> General Rule caught it Derived Name: $prop_name Value: $prop_value  </h3>";
+                            }
+                            if (preg_match('/^(http:.*?)\s(.*?)(xsd:string)?/', $p, $matches)) {
+                            //  echo "<h3> Http Property Property Name Matches </h3>";
+                              $prop_name = $matches[1];
+                              $prop_value = $matches[2];
+                              //echo "<h3> Derived Name: $prop_name Value: $prop_value  </h3>";
+                            }
+                            // Quoted Property Value format of property string ,  Property name is beginning of string to first ". Value is in ""
+                            else if (preg_match('/^(.*?)\s?"(.*?)" xsd:string/', $p, $matches)) {
+                          //   echo "<h3> Quoted Property Value Matches </h3>";
+                              $prop_name = $matches[1];
+                              $prop_value = $matches[2];
+                            /*  if (preg_match('/(".*?")/', $p, $matches)) {
+                                echo "<h3> Value Matches  </h3>";
+                                var_dump($matches);
+                              }
+                              */
+                            }
+                            else if (preg_match('/^(.*?)\s(http:.*?)/', $p, $matches)) {
+                          //   echo "<h3> Quoted Property Value Matches </h3>";
+                              $prop_name = $matches[1];
+                              $prop_value = $matches[2];
+                            /*  if (preg_match('/(".*?")/', $p, $matches)) {
+                                echo "<h3> Value Matches  </h3>";
+                                var_dump($matches);
+                              }
+                              */
+                            }
+                            /*else if (preg_match('/^(.*?)\s(.*?)\s(xsd:string)/', $p, $matches)) {
+                              $prop_name = $matches[1];
+                              $prop_value = $matches[2];
+                            }
+                            else if (preg_match('/^(.*?\s.*?\s.*?:)(.*?)/', $p, $matches)) {
+                              $prop_name = $matches[1];
+                              $prop_value = $matches[2];
+                            // echo "<h3> $p </h3> <h3> General Rule caught it Derived Name: $prop_name Value: $prop_value  </h3>";
+                            }
+                            else if (preg_match('/^(".*?"\s.*?):)(.*?)/', $p, $matches)) {
+                              $prop_name = $matches[1];
+                              $prop_value = $matches[2];
+                            // echo "<h3> $p </h3> <h3> General Rule caught it Derived Name: $prop_name Value: $prop_value  </h3>";
+                          }*/
+                            else {
+                              echo "<h3 style='color:red;'> Property Not derived . Handle this property type </h3>";
+                              echo("<h3> Property Value $p </h3>");
+                            }
+                            //echo "<h3> Derived Name: $prop_name Value: $prop_value  </h3>";
+                            // Insert prop name and get id in database if it doesn't exist.
 
-              $id = $term['id'];
-              $name = $term['name'];
-              $namespace = $term['namespace'];
-              $equivalent_to = $term['equivalent_to'];
-              $is_obsolete = $term['is_obsolete'];
-              $created_by = $term['created_by'];
-              $creation_date = $term['creation_date'];
-              
+
+                            $sql = $db->prepare("select name from efo_property where name = ?");
+
+                            $sql->bind_param("s", $prop_name);
+                            $sql->execute();
+                            $sql->store_result();
+                            $numrows = $sql->num_rows;
+
+                            $sql->close();
+                          //  echo "<h3>prop name is </h3>".$prop_name;
+                          //  echo "<h3>count is </h3>".$numrows;
+
+                            if ($numrows == 0)
+                            {
+                              $sql = $db->prepare("INSERT INTO efo_property (name,example)
+                                                  VALUES(?,?)");
+                              $sql->bind_param("ss", $prop_name, $prop_value);
+                              $sql->execute();
+                              $sql->close();
+                            }
+                            //$prop_id = $this->findInsertProperty($prop_name);
+                          }
+                      //}
+
+                        /* End debugging */
+
+
               //prop_value
+
               if (is_array($term['property_value']))
               {
 
