@@ -1,7 +1,6 @@
 <?php
 
 require_once 'vendor/autoload.php';
-//require_once 'database.php';
 
 use PhpObo\LineReader,
     PhpObo\Parser;
@@ -39,8 +38,10 @@ class Processor
       {
         //  echo "i am here";
          $datawriter = new datawriter\DBDataWriter($allTerms);
+         $conn = $datawriter -> connectDb();
+         $datawriter -> createDb($conn);
          $datawriter -> writeData($allTerms);
-         //$datawriter -> updateData();
+         
 
       }
       else

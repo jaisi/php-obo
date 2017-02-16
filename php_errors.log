@@ -1,0 +1,17 @@
+[16-Feb-2017 14:49:10 US/Central] PHP Notice:  Array to string conversion in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 297
+[16-Feb-2017 14:49:10 US/Central] PHP Stack trace:
+[16-Feb-2017 14:49:10 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[16-Feb-2017 14:49:10 US/Central] PHP   2. Processor->__construct() /usr/local/var/www/htdocs/PhpObo/parse_data.php:17
+[16-Feb-2017 14:49:10 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/parse_data.php:41
+[16-Feb-2017 14:49:10 US/Central] PHP   4. mysqli_stmt->execute() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:297
+[16-Feb-2017 14:49:41 US/Central] PHP Notice:  Array to string conversion in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 297
+[16-Feb-2017 14:49:41 US/Central] PHP Stack trace:
+[16-Feb-2017 14:49:41 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[16-Feb-2017 14:49:41 US/Central] PHP   2. Processor->__construct() /usr/local/var/www/htdocs/PhpObo/parse_data.php:17
+[16-Feb-2017 14:49:41 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/parse_data.php:41
+[16-Feb-2017 14:49:41 US/Central] PHP   4. mysqli_stmt->execute() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:297
+[16-Feb-2017 15:22:35 US/Central] PHP Fatal error:  Call to a member function bind_param() on boolean in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 172
+[16-Feb-2017 15:22:35 US/Central] PHP Stack trace:
+[16-Feb-2017 15:22:35 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[16-Feb-2017 15:22:35 US/Central] PHP   2. Processor->__construct() /usr/local/var/www/htdocs/PhpObo/parse_data.php:17
+[16-Feb-2017 15:22:35 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/parse_data.php:43

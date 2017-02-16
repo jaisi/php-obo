@@ -10,6 +10,8 @@ class CSVDataWriter implements DataWriter
 
           public function connectDb()
           {}
+          public function createDb($db)
+          {}
 
           public function writeData($allTerms)
           {

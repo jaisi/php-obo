@@ -8,7 +8,7 @@ class DBDataWriter implements DataWriter
       public function connectDb()
       {
         $config = parse_ini_file('./config.ini');
-        $db = new \mysqli($config['server'], $config['username'],$config['password'],$config['dbname']);
+        $db = new \mysqli('127.0.0.1', $config['username'],$config['password'],$config['dbname']);
         echo(print_r($config,1));
 
         // Check connection
@@ -17,38 +17,10 @@ class DBDataWriter implements DataWriter
         }
         return $db;
       }
-
-      public function createDb($db)
-      {
-        echo "i am here";
-        $query = file_get_contents("create_db.sql");
-
-          if ($db->multi_query($query)) {
-              do {
-                  /* store first result set */
-                  if ($result = $db->store_result()) {
-                      while ($row = $result->fetch_row()) {
-                          printf("%s\n", $row[0]);
-                      }
-                      $result->close();
-                  }
-                  /* print divider */
-                  if ($db->more_results()) {
-                      printf("-----------------\n");
-                  }
-              } while ($db->next_result());
-          }
-
-          /* close connection */
-          $db->close();
-
       
-
-      }
-
       public function findInsertProperty($db, $id, $p, $prop_name, $prop_value)
       {
-                $sql = $db->prepare("select name from efo_property where name = ?");
+        $sql = $db->prepare("select name from efo_property where name = ?");
 
                  $sql->bind_param("s", $prop_name);
                  $sql->execute();
@@ -136,7 +108,6 @@ class DBDataWriter implements DataWriter
                     $prop_value = 'EFO:'.$matches[2];
                   //EFO
                 }
-
                   else if (preg_match('/^(.*?)\s(.*?)\s(.*?)/', $p, $matches)) {
                    $prop_name = $matches[1];
                     $prop_value = $matches[2];
@@ -156,6 +127,7 @@ class DBDataWriter implements DataWriter
               }
               //continue;
 }
+
 
               //def
               if (is_array($term['def']))

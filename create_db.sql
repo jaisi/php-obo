@@ -11,6 +11,13 @@
 # ************************************************************
 
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
 # Dump of table efo
@@ -28,7 +35,7 @@ CREATE TABLE `efo` (
   `created_by` varchar(500) DEFAULT NULL,
   `creation_date` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
-)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
@@ -46,7 +53,7 @@ CREATE TABLE `efo_cleaned` (
    `is_obsolete` VARCHAR(500) NULL DEFAULT NULL,
    `created_by` VARCHAR(500) NULL DEFAULT NULL,
    `creation_date` VARCHAR(500) NULL DEFAULT NULL
-)
+) ENGINE=MyISAM;
 
 
 
@@ -58,7 +65,7 @@ DROP TABLE IF EXISTS `efo_def`;
 CREATE TABLE `efo_def` (
   `id` varchar(500) DEFAULT '',
   `def` varchar(500) DEFAULT ''
-)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
@@ -70,7 +77,7 @@ DROP VIEW IF EXISTS `efo_def_cleaned`;
 CREATE TABLE `efo_def_cleaned` (
    `id` VARCHAR(500) NULL DEFAULT '',
    `def` VARCHAR(500) NULL DEFAULT ''
-)
+) ENGINE=MyISAM;
 
 
 
@@ -83,7 +90,7 @@ CREATE TABLE `efo_is_a` (
   `id` varchar(500) DEFAULT '',
   `is_a_value` varchar(500) DEFAULT NULL,
   `is_a_description` varchar(500) DEFAULT NULL
-)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
@@ -96,7 +103,7 @@ CREATE TABLE `efo_is_a_cleaned` (
    `id` VARCHAR(500) NULL DEFAULT '',
    `is_a_value` VARCHAR(500) NULL DEFAULT NULL,
    `is_a_description` VARCHAR(500) NULL DEFAULT NULL
-)
+) ENGINE=MyISAM;
 
 
 
@@ -110,7 +117,7 @@ CREATE TABLE `efo_property` (
   `name` varchar(500) DEFAULT NULL,
   `example` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
-)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 LOCK TABLES `efo_property` WRITE;
 /*!40000 ALTER TABLE `efo_property` DISABLE KEYS */;
@@ -163,7 +170,7 @@ CREATE TABLE `efo_property_value` (
   `mesh` varchar(500) DEFAULT '',
   `nci` varchar(500) DEFAULT '',
   `snomed` varchar(500) DEFAULT ''
-)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
@@ -180,7 +187,7 @@ CREATE TABLE `efo_property_value_cleaned` (
    `mesh` VARCHAR(500) NULL DEFAULT '',
    `nci` VARCHAR(500) NULL DEFAULT '',
    `snomed` VARCHAR(500) NULL DEFAULT ''
-)
+) ENGINE=MyISAM;
 
 
 
@@ -195,7 +202,7 @@ CREATE TABLE `efo_relationship` (
   `relationship_ont_name` varchar(500) DEFAULT NULL,
   `relationship_ont_value` varchar(500) DEFAULT NULL,
   `relationship_description` varchar(500) DEFAULT ''
-)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
@@ -210,7 +217,7 @@ CREATE TABLE `efo_relationship_cleaned` (
    `relationship_ont_name` VARCHAR(500) NULL DEFAULT NULL,
    `relationship_ont_value` VARCHAR(500) NULL DEFAULT NULL,
    `relationship_description` VARCHAR(500) NULL DEFAULT ''
-)
+) ENGINE=MyISAM;
 
 
 
@@ -223,7 +230,7 @@ CREATE TABLE `efo_synonym` (
   `id` varchar(500) DEFAULT '',
   `synonym` varchar(500) DEFAULT '',
   `synonym_type` varchar(500) DEFAULT ''
-)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
@@ -236,7 +243,7 @@ CREATE TABLE `efo_synonym_cleaned` (
    `id` VARCHAR(500) NULL DEFAULT '',
    `synonym` VARCHAR(500) NULL DEFAULT '',
    `synonym_type` VARCHAR(500) NULL DEFAULT ''
-)
+) ENGINE=MyISAM;
 
 
 
@@ -328,3 +335,10 @@ AS SELECT
    `efo_synonym`.`synonym` AS `synonym`,
    `efo_synonym`.`synonym_type` AS `synonym_type`
 FROM `efo_synonym` where (`efo_synonym`.`id` like 'EFO%');
+
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
