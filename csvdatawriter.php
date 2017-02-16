@@ -5,12 +5,24 @@ namespace datawriter;
 class CSVDataWriter implements DataWriter
 {
   //to do
+          public function findInsertProperty($db,$a,$b,$c,$d)
+          {}
+
+          public function connectDb()
+          {}
+
           public function writeData($allTerms)
           {
             $fp = fopen("test.csv","w") or die('Unable to open file!'); // file pointer
-            foreach($allTerms as $term)
+            foreach($allTerms as $tkey => $tvalue)
             {
-                foreach($term as $key => $value)
+                if (is_array($tvalue))
+                {
+                  echo "i am here";
+                  fputcsv($fp, $tvalue, ',', '"');
+                }
+
+                foreach($tvalue as $key => $value)
                 {
                     if(is_array($value))
                     {
@@ -23,7 +35,7 @@ class CSVDataWriter implements DataWriter
                     }
                     else
                     {
-                      echo "hey this is not an array??";
+                    //  echo "hey this is not an array??";
                     }
                  }
 
@@ -31,7 +43,9 @@ class CSVDataWriter implements DataWriter
 
               }
               fclose($fp);
+              echo "finished writing to csv file";
             }
 }
+
 
 ?>
