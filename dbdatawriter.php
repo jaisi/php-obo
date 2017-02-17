@@ -20,7 +20,7 @@ class DBDataWriter implements DataWriter
 
       public function createDb($db)
       {
-        echo "i am here";
+        //echo "i am here";
         $query = file_get_contents("create_db.sql");
 
           if ($db->multi_query($query)) {
@@ -42,7 +42,7 @@ class DBDataWriter implements DataWriter
           /* close connection */
           $db->close();
 
-      
+
 
       }
 

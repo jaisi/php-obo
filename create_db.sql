@@ -119,42 +119,6 @@ CREATE TABLE `efo_property` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-LOCK TABLES `efo_property` WRITE;
-/*!40000 ALTER TABLE `efo_property` DISABLE KEYS */;
-
-INSERT INTO `efo_property` (`id`, `name`, `example`)
-VALUES
-	(1,'EFO:URI','http://www.ebi.ac.uk/efo/EFO_0001433'),
-	(2,'http://www.ebi.ac.uk/efo/NCI_Thesaurus_definition_citation NCIt:','C29862'),
-	(3,'http://www.ebi.ac.uk/efo/SNOMEDCT_definition_citation SNOMEDCT:','4151780'),
-	(4,'IAO:0000117','\"James Malone\" '),
-	(5,'organizational:class','\"true\" '),
-	(6,'source:definition','\"An occurrent [span:Occurrent] that exists in time by occurring or happening, has temporal parts and always involves and depends on some entity.\" '),
-	(7,'ArrayExpress:label','\"disease property\"'),
-	(8,'branch:class','\"true\" '),
-	(9,'IAO:0000112','\"For example, the disposition of vegetables to decay when not refrigerated, the disposition of blood to coagulate, the disposition of a patient with a weakened immune system to contract disease.\" '),
-	(10,'IAO:0000412','http://purl.obolibrary.org/obo/bto.owl'),
-	(11,'http://www.ebi.ac.uk/efo/obsoleted_in_version','\"2.44\"'),
-	(12,'http://www.ebi.ac.uk/efo/reason_for_obsolescence','\"Duplicate with class K562 http://www.ebi.ac.uk/efo/EFO_0002067\" '),
-	(14,'http://www.ebi.ac.uk/efo/UBERON_definition_citation UBERON:','0004103'),
-	(15,'http://www.ebi.ac.uk/efo/BFO_definition_citation BFO:','0000020'),
-	(16,'http://www.ebi.ac.uk/efo/MSH_definition_citation MSH:','D012380'),
-	(17,'definition:citation','http://purl.obolibrary.org/obo/OBI_0100060'),
-	(18,'http://www.ebi.ac.uk/efo/Patent_definition_citation','\"Patent:BE863429 \"Patent\"\" '),
-	(19,'http://www.ebi.ac.uk/efo/ATCC_definition_citation ATCC:','TIB-152'),
-	(20,'bioportal:provenance','\"ABL1 Gene[accessedResource: C17H18FN3O3][accessDate: 05-04-2011]\"'),
-	(21,'http://www.ebi.ac.uk/efo/Beilstein_definition_citation','\"Beilstein:567897 \"Beilstein Registry Number\"\" '),
-	(22,'http://www.ebi.ac.uk/efo/ChEMBL_definition_citation','\"ChEMBL:100246 \"ChEMBL COMPOUND\"\" '),
-	(23,'http://www.ebi.ac.uk/efo/ChemIDplus_definition_citation','\"ChemIDplus:70458-96-7 \"CAS Registry Number\"\" '),
-	(24,'http://www.ebi.ac.uk/efo/CiteXplore_definition_citation','\"CiteXplore:3317294 \"PubMed citation\"\"'),
-	(25,'http://www.ebi.ac.uk/efo/DrugBank_definition_citation','\"DrugBank:DB01059 \"DrugBank\"\"'),
-	(26,'http://www.ebi.ac.uk/efo/Gmelin_definition_citation','\"Gmelin:1576626 \"Gmelin Registry Number\"\"'),
-	(27,'http://www.ebi.ac.uk/efo/KEGG_COMPOUND_definition_citation','\"KEGG COMPOUND:70458-96-7 \"CAS Registry Number\"\" '),
-	(28,'http://www.ebi.ac.uk/efo/KEGG_DRUG_definition_citation','\"KEGG DRUG:D00210 \"KEGG DRUG\"\" '),
-	(30,'http://www.ebi.ac.uk/efo/Wikipedia_definition_citation','\"Wikipedia:Norfloxacin \"Wikipedia\"\"');
-
-/*!40000 ALTER TABLE `efo_property` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table efo_property_value

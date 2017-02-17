@@ -15,3 +15,78 @@
 [16-Feb-2017 15:22:35 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
 [16-Feb-2017 15:22:35 US/Central] PHP   2. Processor->__construct() /usr/local/var/www/htdocs/PhpObo/parse_data.php:17
 [16-Feb-2017 15:22:35 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/parse_data.php:43
+[17-Feb-2017 15:58:12 US/Central] PHP Strict standards:  mysqli::next_result(): There is no next result set. Please, call mysqli_more_results()/mysqli::more_results() to check whether to call this function/method in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 39
+[17-Feb-2017 15:58:12 US/Central] PHP Stack trace:
+[17-Feb-2017 15:58:12 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[17-Feb-2017 15:58:12 US/Central] PHP   2. Processor->__construct() /usr/local/var/www/htdocs/PhpObo/parse_data.php:17
+[17-Feb-2017 15:58:12 US/Central] PHP   3. datawriter\DBDataWriter->createDb() /usr/local/var/www/htdocs/PhpObo/parse_data.php:42
+[17-Feb-2017 15:58:12 US/Central] PHP   4. mysqli->next_result() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:39
+[17-Feb-2017 15:58:34 US/Central] PHP Notice:  Array to string conversion in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 325
+[17-Feb-2017 15:58:34 US/Central] PHP Stack trace:
+[17-Feb-2017 15:58:34 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[17-Feb-2017 15:58:34 US/Central] PHP   2. Processor->__construct() /usr/local/var/www/htdocs/PhpObo/parse_data.php:17
+[17-Feb-2017 15:58:34 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/parse_data.php:43
+[17-Feb-2017 15:58:34 US/Central] PHP   4. mysqli_stmt->execute() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:325
+[17-Feb-2017 15:59:06 US/Central] PHP Notice:  Array to string conversion in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 325
+[17-Feb-2017 15:59:06 US/Central] PHP Stack trace:
+[17-Feb-2017 15:59:06 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[17-Feb-2017 15:59:06 US/Central] PHP   2. Processor->__construct() /usr/local/var/www/htdocs/PhpObo/parse_data.php:17
+[17-Feb-2017 15:59:06 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/parse_data.php:43
+[17-Feb-2017 15:59:06 US/Central] PHP   4. mysqli_stmt->execute() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:325
+[17-Feb-2017 16:18:11 US/Central] PHP Fatal error:  Class 'Processor' not found in /usr/local/var/www/htdocs/PhpObo/parse_data.php on line 17
+[17-Feb-2017 16:18:11 US/Central] PHP Stack trace:
+[17-Feb-2017 16:18:11 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[17-Feb-2017 16:20:07 US/Central] PHP Strict standards:  mysqli::next_result(): There is no next result set. Please, call mysqli_more_results()/mysqli::more_results() to check whether to call this function/method in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 39
+[17-Feb-2017 16:20:07 US/Central] PHP Stack trace:
+[17-Feb-2017 16:20:07 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[17-Feb-2017 16:20:07 US/Central] PHP   2. Processor->__construct() /usr/local/var/www/htdocs/PhpObo/parse_data.php:17
+[17-Feb-2017 16:20:07 US/Central] PHP   3. datawriter\DBDataWriter->createDb() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:26
+[17-Feb-2017 16:20:07 US/Central] PHP   4. mysqli->next_result() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:39
+[17-Feb-2017 16:20:29 US/Central] PHP Notice:  Array to string conversion in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 325
+[17-Feb-2017 16:20:29 US/Central] PHP Stack trace:
+[17-Feb-2017 16:20:29 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[17-Feb-2017 16:20:29 US/Central] PHP   2. Processor->__construct() /usr/local/var/www/htdocs/PhpObo/parse_data.php:17
+[17-Feb-2017 16:20:29 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:27
+[17-Feb-2017 16:20:29 US/Central] PHP   4. mysqli_stmt->execute() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:325
+[17-Feb-2017 16:21:00 US/Central] PHP Notice:  Array to string conversion in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 325
+[17-Feb-2017 16:21:00 US/Central] PHP Stack trace:
+[17-Feb-2017 16:21:00 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[17-Feb-2017 16:21:00 US/Central] PHP   2. Processor->__construct() /usr/local/var/www/htdocs/PhpObo/parse_data.php:17
+[17-Feb-2017 16:21:00 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:27
+[17-Feb-2017 16:21:00 US/Central] PHP   4. mysqli_stmt->execute() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:325
+[17-Feb-2017 16:27:11 US/Central] PHP Strict standards:  mysqli::next_result(): There is no next result set. Please, call mysqli_more_results()/mysqli::more_results() to check whether to call this function/method in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 39
+[17-Feb-2017 16:27:11 US/Central] PHP Stack trace:
+[17-Feb-2017 16:27:11 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[17-Feb-2017 16:27:11 US/Central] PHP   2. Processor->process() /usr/local/var/www/htdocs/PhpObo/parse_data.php:18
+[17-Feb-2017 16:27:11 US/Central] PHP   3. datawriter\DBDataWriter->createDb() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:30
+[17-Feb-2017 16:27:11 US/Central] PHP   4. mysqli->next_result() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:39
+[17-Feb-2017 16:27:32 US/Central] PHP Notice:  Array to string conversion in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 325
+[17-Feb-2017 16:27:32 US/Central] PHP Stack trace:
+[17-Feb-2017 16:27:32 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[17-Feb-2017 16:27:32 US/Central] PHP   2. Processor->process() /usr/local/var/www/htdocs/PhpObo/parse_data.php:18
+[17-Feb-2017 16:27:32 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:31
+[17-Feb-2017 16:27:32 US/Central] PHP   4. mysqli_stmt->execute() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:325
+[17-Feb-2017 16:28:04 US/Central] PHP Notice:  Array to string conversion in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 325
+[17-Feb-2017 16:28:04 US/Central] PHP Stack trace:
+[17-Feb-2017 16:28:04 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[17-Feb-2017 16:28:04 US/Central] PHP   2. Processor->process() /usr/local/var/www/htdocs/PhpObo/parse_data.php:18
+[17-Feb-2017 16:28:04 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:31
+[17-Feb-2017 16:28:04 US/Central] PHP   4. mysqli_stmt->execute() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:325
+[17-Feb-2017 16:38:39 US/Central] PHP Strict standards:  mysqli::next_result(): There is no next result set. Please, call mysqli_more_results()/mysqli::more_results() to check whether to call this function/method in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 39
+[17-Feb-2017 16:38:39 US/Central] PHP Stack trace:
+[17-Feb-2017 16:38:39 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[17-Feb-2017 16:38:39 US/Central] PHP   2. Processor->process() /usr/local/var/www/htdocs/PhpObo/parse_data.php:18
+[17-Feb-2017 16:38:39 US/Central] PHP   3. datawriter\DBDataWriter->createDb() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:30
+[17-Feb-2017 16:38:39 US/Central] PHP   4. mysqli->next_result() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:39
+[17-Feb-2017 16:39:00 US/Central] PHP Notice:  Array to string conversion in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 325
+[17-Feb-2017 16:39:00 US/Central] PHP Stack trace:
+[17-Feb-2017 16:39:00 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[17-Feb-2017 16:39:00 US/Central] PHP   2. Processor->process() /usr/local/var/www/htdocs/PhpObo/parse_data.php:18
+[17-Feb-2017 16:39:00 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:31
+[17-Feb-2017 16:39:00 US/Central] PHP   4. mysqli_stmt->execute() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:325
+[17-Feb-2017 16:39:33 US/Central] PHP Notice:  Array to string conversion in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 325
+[17-Feb-2017 16:39:33 US/Central] PHP Stack trace:
+[17-Feb-2017 16:39:33 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[17-Feb-2017 16:39:33 US/Central] PHP   2. Processor->process() /usr/local/var/www/htdocs/PhpObo/parse_data.php:18
+[17-Feb-2017 16:39:33 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:31
+[17-Feb-2017 16:39:33 US/Central] PHP   4. mysqli_stmt->execute() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:325
