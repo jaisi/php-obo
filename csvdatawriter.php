@@ -20,7 +20,7 @@ class CSVDataWriter implements DataWriter
             {
                 if (is_array($tvalue))
                 {
-                  echo "i am here";
+                  //echo "i am here";
                   fputcsv($fp, $tvalue, ',', '"');
                 }
 

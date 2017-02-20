@@ -72,6 +72,24 @@ class DBDataWriter implements DataWriter
                  $sql->close();
       }
 
+      public function findInsertDef($db,$id,$def)
+      {
+        $sql = $db->prepare("INSERT INTO efo_def(id, def)
+                            VALUES(?,?)");
+        $sql->bind_param("ss", $id, $def);
+        $sql->execute();
+        $sql->close();
+      }
+
+      public function findInsertSynonym($db,$id,$synonym,$synonym_type)
+      {
+        $sql = $db->prepare("INSERT INTO efo_synonym(id, synonym, synonym_type)
+                            VALUES(?,?,?)");
+        $sql->bind_param("sss", $id, $synonym, $synonym_type);
+        $sql->execute();
+        $sql->close();
+      }
+
       public function writeData($allTerms)
       {
           //create connection
@@ -167,13 +185,10 @@ class DBDataWriter implements DataWriter
 
                   $def = $v;
                   if (!empty($v))
-                 {
+                  {
                     $v = preg_replace('/\[]|"|\\\n/', '', $v);
-                    $sql = $db->prepare("INSERT INTO efo_def(id, def)
-                                        VALUES(?,?)");
-                    $sql->bind_param("ss", $id, $v);
-                    $sql->execute();
-                    $sql->close();
+                    $this->findInsertDef($db,$id,$v);
+
                   }
                  }
 
@@ -184,11 +199,7 @@ class DBDataWriter implements DataWriter
                 if (!empty($def))
                 {
                   $def = preg_replace('/\[]|"|\\\n/', '', $def);
-                  $sql = $db->prepare("INSERT INTO efo_def(id, def)
-                                      VALUES(?,?)");
-                  $sql->bind_param("ss", $id, $def);
-                  $sql->execute();
-                  $sql->close();
+                  $this->findInsertDef($db,$id,$def);
                 }
               }
 
@@ -205,11 +216,7 @@ class DBDataWriter implements DataWriter
                  {
                    $synonym_type = strstr($v, 'EXACT')?'EXACT':(strstr($v,'RELATED')?'RELATED':'');
                     $v = preg_replace('/\[]|"|\\\n|EXACT|RELATED/', '', $v);
-                    $sql = $db->prepare("INSERT INTO efo_synonym(id, synonym, synonym_type)
-                                        VALUES(?,?,?)");
-                    $sql->bind_param("sss", $id, $v, $synonym_type);
-                    $sql->execute();
-                    $sql->close();
+                    $this->findInsertSynonym($db,$id,$v,$synonym_type);
                   }
                 }
 
@@ -221,12 +228,8 @@ class DBDataWriter implements DataWriter
                 {
                   $synonym_type = strstr($synonym, 'EXACT')?'EXACT':(strstr($synonym,'RELATED')?'RELATED':'');
                   $synonym = preg_replace('/\[]|"|\\\n|EXACT|RELATED/', '', $synonym);
+                  $this->findInsertSynonym($db,$id,$synonym,$synonym_type);
 
-                  $sql = $db->prepare("INSERT INTO efo_synonym(id, synonym, synonym_type)
-                                      VALUES(?,?,?)");
-                  $sql->bind_param("sss", $id, $synonym, $synonym_type);
-                  $sql->execute();
-                  $sql->close();
                 }
               }
 
@@ -282,6 +285,7 @@ class DBDataWriter implements DataWriter
                     list($relationship,$relationship_description) = explode("!", $relationship);
                   }
                   $relationship = preg_split( '/(\s|:)/', $relationship);
+
                   if (!empty($v))
                   {
                     $sql = $db->prepare("INSERT INTO efo_relationship(id, rtype, relationship_ont_name, relationship_ont_value, relationship_description)
