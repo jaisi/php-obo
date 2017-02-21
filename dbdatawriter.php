@@ -90,6 +90,34 @@ class DBDataWriter implements DataWriter
         $sql->close();
       }
 
+      public function findInsertIs_a($db,$id,$is_a_value,$is_a_desc)
+      {
+        $sql = $db->prepare("INSERT INTO efo_is_a(id, is_a_value, is_a_description)
+                            VALUES(?,?,?)");
+        $sql->bind_param("sss", $id, $is_a_value, $is_a_desc);
+        $sql->execute();
+        $sql->close();
+      }
+
+      public function findInsertRelationship($db, $id, $rtype, $relationship_ont_name, $relationship_ont_value, $relationship_description)
+      {
+        $sql = $db->prepare("INSERT INTO efo_relationship(id, rtype, relationship_ont_name, relationship_ont_value, relationship_description)
+                              VALUES(?,?,?,?,?)");
+        $sql->bind_param("sssss", $id, $rtype, $relationship_ont_name, $relationship_ont_value, $relationship_description);
+        $sql->execute();
+        $sql->close();
+
+      }
+
+      public function findInsertEfo($db, $id, $ont_id, $name, $namespace, $equivalent_to, $is_obsolete, $created_by, $creation_date)
+      {
+        $sql = $db->prepare("INSERT INTO efo (id, ont_id, name, namespace, equivalent_to, is_obsolete, created_by, creation_date)
+                      VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $sql->bind_param("ssssssss", $id, $ont_id, $name, $namespace, $equivalent_to, $is_obsolete, $created_by, $creation_date);
+        $sql->execute();
+        $sql->close();
+      }
+
       public function writeData($allTerms)
       {
           //create connection
@@ -154,7 +182,12 @@ class DBDataWriter implements DataWriter
                     $prop_value = 'EFO:'.$matches[2];
                   //EFO
                 }
-
+                  //"has_rank" NCBITaxon:species
+                  else if (preg_match('/("has_rank" NCBITaxon:)(.*?)/', $p, $matches)) {
+                   $prop_name = $matches[1];
+                   $prop_value = $matches[2];
+                  //has_rank NCBITaxon
+                }
                   else if (preg_match('/^(.*?)\s(.*?)\s(.*?)/', $p, $matches)) {
                    $prop_name = $matches[1];
                     $prop_value = $matches[2];
@@ -163,7 +196,7 @@ class DBDataWriter implements DataWriter
                   }
 
                   else {
-                    echo "<h3 style='color:red;'> Property Not derived . Handle this property type $p</h3>";
+                  //  echo "<h3 style='color:red;'> Property Not derived . Handle this property type $p</h3>";
                   //  echo("<h3> Property Value $p </h3>");
                   }
 
@@ -243,12 +276,8 @@ class DBDataWriter implements DataWriter
                   list($is_a_value, $is_a_desc) = explode("!", $is_a);
                    if(!empty($v))
                   {
+                      $this->findInsertIs_a($db, $id, $is_a_value, $is_a_desc);
 
-                      $sql = $db->prepare("INSERT INTO efo_is_a(id, is_a_value, is_a_description)
-                                          VALUES(?,?,?)");
-                      $sql->bind_param("sss", $id, $is_a_value, $is_a_desc);
-                      $sql->execute();
-                      $sql->close();
                    }
                   }
 
@@ -261,12 +290,9 @@ class DBDataWriter implements DataWriter
                 if (!empty($is_a[0]))
                 {
                   if (!empty($is_a[1])) { $is_a_desc = $is_a[1];} else {$is_a_desc = '';}
+                  $is_a_value = $is_a[0];
+                  $this->findInsertIs_a($db, $id, $is_a_value, $is_a_desc);
 
-                  $sql = $db->prepare("INSERT INTO efo_is_a(id, is_a_value, is_a_description)
-                                      VALUES(?,?,?)");
-                  $sql->bind_param("sss", $id, $is_a[0], $is_a_desc);
-                  $sql->execute();
-                  $sql->close();
                 }
               }
 
@@ -285,14 +311,14 @@ class DBDataWriter implements DataWriter
                     list($relationship,$relationship_description) = explode("!", $relationship);
                   }
                   $relationship = preg_split( '/(\s|:)/', $relationship);
+                  $rtype = $relationship[0];
+                  $relationship_ont_name = $relationship[1];
+                  $relationship_ont_value = $relationship[2];
 
                   if (!empty($v))
                   {
-                    $sql = $db->prepare("INSERT INTO efo_relationship(id, rtype, relationship_ont_name, relationship_ont_value, relationship_description)
-                                          VALUES(?,?,?,?,?)");
-                    $sql->bind_param("sssss", $id, $relationship[0], $relationship[1], $relationship[2], $relationship_description);
-                    $sql->execute();
-                    $sql->close();
+                    $this->findInsertRelationship($db, $id, $rtype, $relationship_ont_name, $relationship_ont_value, $relationship_description);
+
                   }
                 }
 
@@ -309,11 +335,10 @@ class DBDataWriter implements DataWriter
                 $relationship = preg_split('/(\s|:)/', $relationship);
                 if (!empty($relationship[0]))
                 {
-                  $sql = $db->prepare("INSERT INTO efo_relationship(id, rtype, relationship_ont_name, relationship_ont_value, relationship_description)
-                                        VALUES(?,?,?,?,?)");
-                  $sql->bind_param("sssss", $id, $relationship[0], $relationship[1], $relationship[2], $relationship_description);
-                  $sql->execute();
-                  $sql->close();
+                  $rtype = $relationship[0];
+                  $relationship_ont_name = $relationship[1];
+                  $relationship_ont_value = $relationship[2];
+                  $this->findInsertRelationship($db, $id, $rtype, $relationship_ont_name, $relationship_ont_value, $relationship_description);
 
                 }
               }
@@ -323,24 +348,7 @@ class DBDataWriter implements DataWriter
             // prepare and bind
              $ont_id = preg_split('/:/', $id);
              $ont_id = $ont_id[1];
-              $sql = $db->prepare("INSERT INTO efo (id, ont_id, name, namespace, equivalent_to, is_obsolete, created_by, creation_date)
-                            VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-              $sql->bind_param("ssssssss", $id, $ont_id, $name, $namespace, $equivalent_to, $is_obsolete, $created_by, $creation_date);
-              $sql->execute();
-              $sql->close();
-
-              // If the query executed properly proceed
-
-            //  if($result)
-              //{
-                //echo "parsing and dump to database successful";
-              //}
-            //  else
-            //  {
-                  //echo $db -> error();
-
-            //  }
-
+             $this->findInsertEfo($db, $id, $ont_id, $name, $namespace, $equivalent_to, $is_obsolete, $created_by, $creation_date);
 
             }
             echo "Writing to db successful!<br>";
