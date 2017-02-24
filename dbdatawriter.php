@@ -9,7 +9,7 @@ class DBDataWriter implements DataWriter
       {
         $config = parse_ini_file('./config.ini');
         $db = new \mysqli($config['server'], $config['username'],$config['password'],$config['dbname']);
-        echo(print_r($config,1));
+      //  echo(print_r($config,1));
 
         // Check connection
         if ($db->connect_error) {

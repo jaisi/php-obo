@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.7.17-log)
 # Database: efo
-# Generation Time: 2017-02-24 15:19:00 +0000
+# Generation Time: 2017-02-14 14:53:35 +0000
 # ************************************************************
 
 
@@ -64,8 +64,7 @@ DROP TABLE IF EXISTS `efo_def`;
 
 CREATE TABLE `efo_def` (
   `id` varchar(500) DEFAULT '',
-  `def` varchar(500) DEFAULT '',
-  KEY `id` (`id`,`def`)
+  `def` varchar(500) DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -88,11 +87,9 @@ CREATE TABLE `efo_def_cleaned` (
 DROP TABLE IF EXISTS `efo_is_a`;
 
 CREATE TABLE `efo_is_a` (
-  `id` varchar(50) DEFAULT '',
+  `id` varchar(500) DEFAULT '',
   `is_a_value` varchar(500) DEFAULT NULL,
-  `is_a_description` varchar(500) DEFAULT NULL,
-  KEY `id` (`id`,`is_a_value`)
-
+  `is_a_description` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -103,7 +100,7 @@ CREATE TABLE `efo_is_a` (
 DROP VIEW IF EXISTS `efo_is_a_cleaned`;
 
 CREATE TABLE `efo_is_a_cleaned` (
-   `id` VARCHAR(50) NULL DEFAULT '',
+   `id` VARCHAR(500) NULL DEFAULT '',
    `is_a_value` VARCHAR(500) NULL DEFAULT NULL,
    `is_a_description` VARCHAR(500) NULL DEFAULT NULL
 ) ENGINE=MyISAM;
@@ -130,11 +127,13 @@ CREATE TABLE `efo_property` (
 DROP TABLE IF EXISTS `efo_property_value`;
 
 CREATE TABLE `efo_property_value` (
-  `id` varchar(50) DEFAULT '',
+  `id` varchar(500) DEFAULT '',
   `property_value_cleaned` varchar(500) DEFAULT NULL,
   `property_id` int(11) DEFAULT NULL,
   `property_value` varchar(500) DEFAULT '',
-  KEY `id` (`id`,`property_value_cleaned`)
+  `mesh` varchar(500) DEFAULT '',
+  `nci` varchar(500) DEFAULT '',
+  `snomed` varchar(500) DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -145,7 +144,7 @@ CREATE TABLE `efo_property_value` (
 DROP VIEW IF EXISTS `efo_property_value_cleaned`;
 
 CREATE TABLE `efo_property_value_cleaned` (
-   `id` VARCHAR(50) NULL DEFAULT '',
+   `id` VARCHAR(500) NULL DEFAULT '',
    `property_value_cleaned` VARCHAR(500) NULL DEFAULT NULL,
    `property_id` INT(11) NULL DEFAULT NULL,
    `property_value` VARCHAR(500) NULL DEFAULT '',
@@ -162,12 +161,11 @@ CREATE TABLE `efo_property_value_cleaned` (
 DROP TABLE IF EXISTS `efo_relationship`;
 
 CREATE TABLE `efo_relationship` (
-  `id` varchar(50) DEFAULT '',
-  `rtype` varchar(50) DEFAULT NULL,
+  `id` varchar(500) DEFAULT '',
+  `rtype` varchar(500) DEFAULT NULL,
   `relationship_ont_name` varchar(500) DEFAULT NULL,
   `relationship_ont_value` varchar(500) DEFAULT NULL,
-  `relationship_description` varchar(500) DEFAULT '',
-   KEY `id` (`id`,`rtype`,`relationship_ont_name`,`relationship_ont_value`)
+  `relationship_description` varchar(500) DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -178,8 +176,8 @@ CREATE TABLE `efo_relationship` (
 DROP VIEW IF EXISTS `efo_relationship_cleaned`;
 
 CREATE TABLE `efo_relationship_cleaned` (
-   `id` VARCHAR(50) NULL DEFAULT '',
-   `rtype` VARCHAR(50) NULL DEFAULT NULL,
+   `id` VARCHAR(500) NULL DEFAULT '',
+   `rtype` VARCHAR(500) NULL DEFAULT NULL,
    `relationship_ont_name` VARCHAR(500) NULL DEFAULT NULL,
    `relationship_ont_value` VARCHAR(500) NULL DEFAULT NULL,
    `relationship_description` VARCHAR(500) NULL DEFAULT ''
@@ -193,10 +191,9 @@ CREATE TABLE `efo_relationship_cleaned` (
 DROP TABLE IF EXISTS `efo_synonym`;
 
 CREATE TABLE `efo_synonym` (
-  `id` varchar(50) DEFAULT '',
+  `id` varchar(500) DEFAULT '',
   `synonym` varchar(500) DEFAULT '',
-  `synonym_type` varchar(500) DEFAULT '',
-  KEY `id` (`id`,`synonym`,`synonym_type`)
+  `synonym_type` varchar(500) DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -207,7 +204,7 @@ CREATE TABLE `efo_synonym` (
 DROP VIEW IF EXISTS `efo_synonym_cleaned`;
 
 CREATE TABLE `efo_synonym_cleaned` (
-   `id` VARCHAR(50) NULL DEFAULT '',
+   `id` VARCHAR(500) NULL DEFAULT '',
    `synonym` VARCHAR(500) NULL DEFAULT '',
    `synonym_type` VARCHAR(500) NULL DEFAULT ''
 ) ENGINE=MyISAM;
