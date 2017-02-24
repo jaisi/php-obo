@@ -164,3 +164,83 @@
 [24-Feb-2017 09:44:28 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:31
 [24-Feb-2017 09:44:28 US/Central] PHP   4. datawriter\DBDataWriter->findInsertEfo() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:351
 [24-Feb-2017 09:44:28 US/Central] PHP   5. mysqli_stmt->execute() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:117
+[24-Feb-2017 10:03:01 US/Central] PHP Strict standards:  mysqli::next_result(): There is no next result set. Please, call mysqli_more_results()/mysqli::more_results() to check whether to call this function/method in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 39
+[24-Feb-2017 10:03:01 US/Central] PHP Stack trace:
+[24-Feb-2017 10:03:01 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[24-Feb-2017 10:03:01 US/Central] PHP   2. Processor->process() /usr/local/var/www/htdocs/PhpObo/parse_data.php:18
+[24-Feb-2017 10:03:01 US/Central] PHP   3. datawriter\DBDataWriter->createDb() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:30
+[24-Feb-2017 10:03:01 US/Central] PHP   4. mysqli->next_result() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:39
+[24-Feb-2017 10:03:22 US/Central] PHP Notice:  Array to string conversion in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 117
+[24-Feb-2017 10:03:22 US/Central] PHP Stack trace:
+[24-Feb-2017 10:03:22 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[24-Feb-2017 10:03:22 US/Central] PHP   2. Processor->process() /usr/local/var/www/htdocs/PhpObo/parse_data.php:18
+[24-Feb-2017 10:03:22 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:31
+[24-Feb-2017 10:03:22 US/Central] PHP   4. datawriter\DBDataWriter->findInsertEfo() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:351
+[24-Feb-2017 10:03:22 US/Central] PHP   5. mysqli_stmt->execute() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:117
+[24-Feb-2017 10:03:53 US/Central] PHP Notice:  Array to string conversion in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 117
+[24-Feb-2017 10:03:53 US/Central] PHP Stack trace:
+[24-Feb-2017 10:03:53 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[24-Feb-2017 10:03:53 US/Central] PHP   2. Processor->process() /usr/local/var/www/htdocs/PhpObo/parse_data.php:18
+[24-Feb-2017 10:03:53 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:31
+[24-Feb-2017 10:03:53 US/Central] PHP   4. datawriter\DBDataWriter->findInsertEfo() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:351
+[24-Feb-2017 10:03:53 US/Central] PHP   5. mysqli_stmt->execute() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:117
+[24-Feb-2017 10:07:24 US/Central] PHP Strict standards:  mysqli::next_result(): There is no next result set. Please, call mysqli_more_results()/mysqli::more_results() to check whether to call this function/method in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 39
+[24-Feb-2017 10:07:24 US/Central] PHP Stack trace:
+[24-Feb-2017 10:07:24 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[24-Feb-2017 10:07:24 US/Central] PHP   2. Processor->process() /usr/local/var/www/htdocs/PhpObo/parse_data.php:18
+[24-Feb-2017 10:07:24 US/Central] PHP   3. datawriter\DBDataWriter->createDb() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:30
+[24-Feb-2017 10:07:24 US/Central] PHP   4. mysqli->next_result() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:39
+[24-Feb-2017 10:07:46 US/Central] PHP Notice:  Array to string conversion in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 117
+[24-Feb-2017 10:07:46 US/Central] PHP Stack trace:
+[24-Feb-2017 10:07:46 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[24-Feb-2017 10:07:46 US/Central] PHP   2. Processor->process() /usr/local/var/www/htdocs/PhpObo/parse_data.php:18
+[24-Feb-2017 10:07:46 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:31
+[24-Feb-2017 10:07:46 US/Central] PHP   4. datawriter\DBDataWriter->findInsertEfo() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:351
+[24-Feb-2017 10:07:46 US/Central] PHP   5. mysqli_stmt->execute() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:117
+[24-Feb-2017 10:08:19 US/Central] PHP Notice:  Array to string conversion in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 117
+[24-Feb-2017 10:08:19 US/Central] PHP Stack trace:
+[24-Feb-2017 10:08:19 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[24-Feb-2017 10:08:19 US/Central] PHP   2. Processor->process() /usr/local/var/www/htdocs/PhpObo/parse_data.php:18
+[24-Feb-2017 10:08:19 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:31
+[24-Feb-2017 10:08:19 US/Central] PHP   4. datawriter\DBDataWriter->findInsertEfo() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:351
+[24-Feb-2017 10:08:19 US/Central] PHP   5. mysqli_stmt->execute() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:117
+[24-Feb-2017 10:12:56 US/Central] PHP Strict standards:  mysqli::next_result(): There is no next result set. Please, call mysqli_more_results()/mysqli::more_results() to check whether to call this function/method in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 39
+[24-Feb-2017 10:12:56 US/Central] PHP Stack trace:
+[24-Feb-2017 10:12:56 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[24-Feb-2017 10:12:56 US/Central] PHP   2. Processor->process() /usr/local/var/www/htdocs/PhpObo/parse_data.php:18
+[24-Feb-2017 10:12:56 US/Central] PHP   3. datawriter\DBDataWriter->createDb() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:30
+[24-Feb-2017 10:12:56 US/Central] PHP   4. mysqli->next_result() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:39
+[24-Feb-2017 10:13:18 US/Central] PHP Notice:  Array to string conversion in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 117
+[24-Feb-2017 10:13:18 US/Central] PHP Stack trace:
+[24-Feb-2017 10:13:18 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[24-Feb-2017 10:13:18 US/Central] PHP   2. Processor->process() /usr/local/var/www/htdocs/PhpObo/parse_data.php:18
+[24-Feb-2017 10:13:18 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:31
+[24-Feb-2017 10:13:18 US/Central] PHP   4. datawriter\DBDataWriter->findInsertEfo() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:351
+[24-Feb-2017 10:13:18 US/Central] PHP   5. mysqli_stmt->execute() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:117
+[24-Feb-2017 10:13:49 US/Central] PHP Notice:  Array to string conversion in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 117
+[24-Feb-2017 10:13:49 US/Central] PHP Stack trace:
+[24-Feb-2017 10:13:49 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[24-Feb-2017 10:13:49 US/Central] PHP   2. Processor->process() /usr/local/var/www/htdocs/PhpObo/parse_data.php:18
+[24-Feb-2017 10:13:49 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:31
+[24-Feb-2017 10:13:49 US/Central] PHP   4. datawriter\DBDataWriter->findInsertEfo() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:351
+[24-Feb-2017 10:13:49 US/Central] PHP   5. mysqli_stmt->execute() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:117
+[24-Feb-2017 10:22:52 US/Central] PHP Strict standards:  mysqli::next_result(): There is no next result set. Please, call mysqli_more_results()/mysqli::more_results() to check whether to call this function/method in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 39
+[24-Feb-2017 10:22:52 US/Central] PHP Stack trace:
+[24-Feb-2017 10:22:52 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[24-Feb-2017 10:22:52 US/Central] PHP   2. Processor->process() /usr/local/var/www/htdocs/PhpObo/parse_data.php:18
+[24-Feb-2017 10:22:52 US/Central] PHP   3. datawriter\DBDataWriter->createDb() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:30
+[24-Feb-2017 10:22:52 US/Central] PHP   4. mysqli->next_result() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:39
+[24-Feb-2017 10:23:16 US/Central] PHP Notice:  Array to string conversion in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 117
+[24-Feb-2017 10:23:16 US/Central] PHP Stack trace:
+[24-Feb-2017 10:23:16 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[24-Feb-2017 10:23:16 US/Central] PHP   2. Processor->process() /usr/local/var/www/htdocs/PhpObo/parse_data.php:18
+[24-Feb-2017 10:23:16 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:31
+[24-Feb-2017 10:23:16 US/Central] PHP   4. datawriter\DBDataWriter->findInsertEfo() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:351
+[24-Feb-2017 10:23:16 US/Central] PHP   5. mysqli_stmt->execute() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:117
+[24-Feb-2017 10:23:48 US/Central] PHP Notice:  Array to string conversion in /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php on line 117
+[24-Feb-2017 10:23:48 US/Central] PHP Stack trace:
+[24-Feb-2017 10:23:48 US/Central] PHP   1. {main}() /usr/local/var/www/htdocs/PhpObo/parse_data.php:0
+[24-Feb-2017 10:23:48 US/Central] PHP   2. Processor->process() /usr/local/var/www/htdocs/PhpObo/parse_data.php:18
+[24-Feb-2017 10:23:48 US/Central] PHP   3. datawriter\DBDataWriter->writeData() /usr/local/var/www/htdocs/PhpObo/dataprocessor.php:31
+[24-Feb-2017 10:23:48 US/Central] PHP   4. datawriter\DBDataWriter->findInsertEfo() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:351
+[24-Feb-2017 10:23:48 US/Central] PHP   5. mysqli_stmt->execute() /usr/local/var/www/htdocs/PhpObo/dbdatawriter.php:117
